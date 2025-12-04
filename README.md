@@ -16,7 +16,7 @@ This project exposes a single API to send professional email notifications.
 <img src="https://your-repo-url/Output/Postman-Success.png" width="800" />
 <br><br>
 
-<img src="https://your-repo-url/Output/DB-Config.png" width="800" />
+<img src="[https://your-repo-url/Output/DB-Config.png](https://github.com/Abhishekkhanai07/dynamic-notification-service/blob/8c2dab779f4baed512bb2a1b058a888bc4a57819/Output/DataBase.png)" width="800" />
 <br><br>
 
 <img src="https://your-repo-url/Output/Eclipse-Console.png" width="800" />
