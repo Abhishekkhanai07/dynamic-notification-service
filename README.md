@@ -92,7 +92,7 @@ dynamic-notification-service/
 │       │       │   └── MailConfigRepository.java
 │       │       ├── service/
 │       │       │   └── DynamicMailService.java
-│       │       └── NotificationServiceApplication.java
+│       │       └── DemoApplication.java.java
 │       │
 │       └── resources/
 │           ├── application.properties
