@@ -1,17 +1,17 @@
 <h1>📧 Dynamic Gmail Notification Service</h1>
 
 <p>
-A robust <b>Java + Spring Boot based Email Notification Service</b> built as a 
-<b>Dynamic Gmail Notification System</b>.  
-The service exposes a single API to send emails where <b>all Gmail SMTP configurations
-are loaded dynamically from PostgreSQL</b>, with <b>no hardcoded credentials</b> in the code.
+A powerful <b>Java & Spring Boot based Email Notification System</b> where all
+<b>Gmail SMTP configurations are loaded dynamically from PostgreSQL</b> —
+no hardcoded credentials in the code.  
+This project exposes a single API to send professional email notifications.
 </p>
 
 <hr>
 
 <h2>📸 Output Screenshots</h2>
 
-<p>Replace these with your actual images (Postman / Swagger / Logs):</p>
+<p>Replace these with your actual screenshots:</p>
 
 <img src="https://your-repo-url/Output/Postman-Success.png" width="800" />
 <br><br>
@@ -19,7 +19,7 @@ are loaded dynamically from PostgreSQL</b>, with <b>no hardcoded credentials</b>
 <img src="https://your-repo-url/Output/DB-Config.png" width="800" />
 <br><br>
 
-<img src="https://your-repo-url/Output/Console-Logs.png" width="800" />
+<img src="https://your-repo-url/Output/Eclipse-Console.png" width="800" />
 <br><br>
 
 <hr>
@@ -27,15 +27,18 @@ are loaded dynamically from PostgreSQL</b>, with <b>no hardcoded credentials</b>
 <h2>📄 Project Overview</h2>
 
 <p>
-This project is a <b>Dynamic Gmail Notification API</b> that:
+A dynamic and secure email notification service built using Spring Boot.
+This project follows industry-level backend architecture and ensures full flexibility
+by loading Gmail SMTP configuration from the database at runtime.
 </p>
 
 <ul>
-    <li>Exposes a single REST endpoint: <code>POST /api/sendNotification</code></li>
-    <li>Accepts <code>tomail</code>, <code>subject</code>, and <code>body</code> in JSON format</li>
-    <li>Loads all mail configuration (host, port, username, password, TLS, etc.) from <b>PostgreSQL</b></li>
-    <li>Builds a <b>JavaMailSender</b> instance dynamically at runtime</li>
-    <li>Sends email using Gmail SMTP with <b>no hardcoded credentials</b> in the application code</li>
+    <li>REST API for sending emails</li>
+    <li>Dynamic SMTP configuration (host, port, username, password, TLS, etc.)</li>
+    <li>No hard-coded secrets inside code or properties</li>
+    <li>Uses PostgreSQL as central config storage</li>
+    <li>JavaMailSender built dynamically for every request</li>
+    <li>Postman-ready API endpoint</li>
 </ul>
 
 <hr>
@@ -43,28 +46,27 @@ This project is a <b>Dynamic Gmail Notification API</b> that:
 <h2>📌 Project Objectives</h2>
 
 <ul>
-    <li>Expose a single, clean email notification API</li>
-    <li>Validate request payload fields (email, subject, body)</li>
-    <li>Fetch Gmail SMTP configuration dynamically from the database</li>
-    <li>Build and send email using the dynamic configuration</li>
-    <li>Return proper success and error responses as JSON</li>
-    <li>Keep the service easily configurable without code changes</li>
+    <li>Expose a clean notification API (<code>POST /api/sendNotification</code>)</li>
+    <li>Validate request fields (<code>tomail</code>, <code>subject</code>, <code>body</code>)</li>
+    <li>Fetch SMTP configuration dynamically from PostgreSQL</li>
+    <li>Build mail sender instance programmatically</li>
+    <li>Send email to any target Gmail account</li>
+    <li>Provide success/error JSON responses</li>
 </ul>
 
 <hr>
 
-<h2>🛠️ Tools & Technologies</h2>
+<h2>🛠️ Tools & Technologies Used</h2>
 
 <ul>
+    <li><b>Backend Framework:</b> Spring Boot</li>
     <li><b>Language:</b> Java</li>
-    <li><b>Framework:</b> Spring Boot</li>
     <li><b>Database:</b> PostgreSQL</li>
-    <li><b>ORM:</b> Spring Data JPA (Hibernate)</li>
-    <li><b>Mail:</b> Spring Boot Starter Mail (JavaMailSender)</li>
-    <li><b>Validation:</b> Jakarta Validation (Bean Validation)</li>
-    <li><b>Build Tool:</b> Maven</li>
-    <li><b>API Testing:</b> Postman / cURL</li>
-    <li><b>IDE:</b> IntelliJ IDEA / Eclipse / VS Code</li>
+    <li><b>ORM:</b> Spring Data JPA</li>
+    <li><b>Email Library:</b> Spring Mail (JavaMailSender)</li>
+    <li><b>Validation:</b> Jakarta Validation</li>
+    <li><b>Testing Tool:</b> Postman</li>
+    <li><b>IDE:</b> Eclipse</li>
 </ul>
 
 <hr>
@@ -78,23 +80,23 @@ dynamic-notification-service/
 │       ├── java/
 │       │   └── com/example/notificationservice/
 │       │       ├── controller/
-│       │       │   └── NotificationController.java      # REST API controller
+│       │       │   └── NotificationController.java
 │       │       ├── dto/
-│       │       │   ├── NotificationRequest.java         # Request payload DTO
-│       │       │   └── NotificationResponse.java        # Response DTO
+│       │       │   ├── NotificationRequest.java
+│       │       │   └── NotificationResponse.java
 │       │       ├── entity/
-│       │       │   └── MailConfig.java                  # Mail configuration entity
+│       │       │   └── MailConfig.java
 │       │       ├── exception/
-│       │       │   └── GlobalExceptionHandler.java      # Validation & global error handling
+│       │       │   └── GlobalExceptionHandler.java
 │       │       ├── repository/
-│       │       │   └── MailConfigRepository.java        # JPA repo for MailConfig
+│       │       │   └── MailConfigRepository.java
 │       │       ├── service/
-│       │       │   └── DynamicMailService.java          # Core email sending logic
-│       │       └── NotificationServiceApplication.java  # Spring Boot main class
+│       │       │   └── DynamicMailService.java
+│       │       └── NotificationServiceApplication.java
 │       │
 │       └── resources/
-│           ├── application.properties                   # DB config only (no mail creds)
-│           └── data.sql                                 # Optional: seed DB data
+│           ├── application.properties
+│           └── data.sql (optional)
 │
 ├── pom.xml
 └── README.md
@@ -105,83 +107,64 @@ dynamic-notification-service/
 <h2>⚙️ Methodology</h2>
 
 <ol>
-  <li><b>Request Handling & Validation</b></li>
-  <ul>
-    <li>Client sends <code>POST /api/sendNotification</code> with JSON payload:</li>
-    <pre>{
-  "tomail": "recipient@gmail.com",
-  "subject": "Email Subject",
-  "body": "Email Body Content"
-}</pre>
-    <li><code>@RestController</code> receives the request in <code>NotificationController</code></li>
-    <li><code>@Valid</code> and Bean Validation annotations ensure:
-      <ul>
-        <li><code>tomail</code> is a valid email</li>
-        <li><code>subject</code> and <code>body</code> are not blank</li>
-      </ul>
-    </li>
-    <li>Validation errors are handled by <code>GlobalExceptionHandler</code> and returned as JSON</li>
-  </ul>
+<li><b>1. Request Validation</b></li>
+<ul>
+<li>User sends JSON to <code>/api/sendNotification</code></li>
+<li>DTO validates:
+<ul>
+<li>Valid email format</li>
+<li>Subject and body not empty</li>
+</ul>
+</li>
+</ul>
 
-  <li><b>Dynamic Configuration Loading</b></li>
-  <ul>
-    <li>Mail configuration is stored in <b>PostgreSQL</b> table <code>mail_config</code></li>
-    <li><code>MailConfigRepository</code> fetches the active row:
-      <pre>findFirstByProviderNameAndActiveTrue("GMAIL")</pre>
-    </li>
-    <li>No SMTP details (host, port, username, password) are hardcoded in properties or code</li>
-  </ul>
+<li><b>2. Load SMTP Config From DB</b></li>
+<ul>
+<li>All Gmail settings stored in <code>mail_config</code> table</li>
+<li>No credentials in code or properties</li>
+<li>Repository fetches active configuration</li>
+</ul>
 
-  <li><b>Email Composition & Sending</b></li>
-  <ul>
-    <li><code>DynamicMailService</code> builds a <code>JavaMailSenderImpl</code> instance at runtime</li>
-    <li>SMTP properties like <code>mail.smtp.auth</code> and <code>mail.smtp.starttls.enable</code> 
-        are set from the DB configuration</li>
-    <li><code>MimeMessage</code> and <code>MimeMessageHelper</code> are used to compose:
-      <ul>
-        <li>From address (from DB)</li>
-        <li>To address (<code>tomail</code> from request)</li>
-        <li>Subject & Body (from request)</li>
-      </ul>
-    </li>
-    <li>Mail is sent via Gmail SMTP using <code>sender.send(message)</code></li>
-  </ul>
+<li><b>3. Dynamic Mail Sender Creation</b></li>
+<ul>
+<li><code>JavaMailSenderImpl</code> is created on every request</li>
+<li>Properties like <code>smtp_auth</code>, <code>starttls</code> are set from DB</li>
+</ul>
 
-  <li><b>Error Handling & Responses</b></li>
-  <ul>
-    <li>Any failure (missing DB config, SMTP error, etc.) is caught in the controller</li>
-    <li>Returns a <code>NotificationResponse</code> JSON with:
-      <ul>
-        <li><code>success: true/false</code></li>
-        <li><code>message: "Email sent successfully" / error description</code></li>
-      </ul>
-    </li>
-  </ul>
+<li><b>4. Build Email</b></li>
+<ul>
+<li>Set From, To, Subject, Body</li>
+<li>Supports text emails</li>
+</ul>
+
+<li><b>5. Send Email</b></li>
+<ul>
+<li>Uses Gmail SMTP at runtime</li>
+<li>Returns success or failure JSON response</li>
+</ul>
 </ol>
 
 <hr>
 
-<h2>🗄 Database Design</h2>
-
-<p>Core table for storing dynamic mail configuration:</p>
+<h2>🗄 Database Structure</h2>
 
 <pre>
 CREATE TABLE mail_config (
-    id              SERIAL PRIMARY KEY,
-    provider_name   VARCHAR(50) NOT NULL,
-    host            VARCHAR(255) NOT NULL,
-    port            INT NOT NULL,
-    username        VARCHAR(255) NOT NULL,
-    password        VARCHAR(255) NOT NULL,
-    protocol        VARCHAR(20) NOT NULL,
-    smtp_auth       BOOLEAN NOT NULL,
-    starttls_enable BOOLEAN NOT NULL,
-    from_address    VARCHAR(255) NOT NULL,
-    active          BOOLEAN NOT NULL DEFAULT TRUE
+    id SERIAL PRIMARY KEY,
+    provider_name   VARCHAR(50),
+    host            VARCHAR(255),
+    port            INT,
+    username        VARCHAR(255),
+    password        VARCHAR(255),
+    protocol        VARCHAR(20),
+    smtp_auth       BOOLEAN,
+    starttls_enable BOOLEAN,
+    from_address    VARCHAR(255),
+    active BOOLEAN
 );
 </pre>
 
-<p>Sample seed data (Gmail):</p>
+<h3>Sample Insert</h3>
 
 <pre>
 INSERT INTO mail_config (
@@ -206,71 +189,49 @@ INSERT INTO mail_config (
 <h2>🚀 How to Run</h2>
 
 <ol>
-  <li><b>Clone the Repository</b></li>
-  <ul>
-    <li><code>git clone https://github.com/YourUserName/dynamic-notification-service.git</code></li>
-    <li><code>cd dynamic-notification-service</code></li>
-  </ul>
 
-  <li><b>Set Up PostgreSQL</b></li>
-  <ul>
-    <li>Create database, e.g. <code>notification_db</code></li>
-    <li>Run the <code>CREATE TABLE</code> and <code>INSERT</code> statements shown above</li>
-  </ul>
+<li><b>Clone the Repository</b></li>
+<pre>git clone https://github.com/YourName/dynamic-notification-service.git</pre>
 
-  <li><b>Configure Application Properties</b></li>
-  <ul>
-    <li>Update <code>src/main/resources/application.properties</code>:</li>
+<li><b>Configure PostgreSQL</b></li>
+<ul>
+<li>Create DB: <code>notification_db</code></li>
+<li>Run table + insert queries</li>
+</ul>
+
+<li><b>Update application.properties</b></li>
 <pre>
 spring.datasource.url=jdbc:postgresql://localhost:5432/notification_db
 spring.datasource.username=postgres
-spring.datasource.password=your_db_password
+spring.datasource.password=your_password
 spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
 </pre>
-    <li>No Gmail config here – they come from DB only</li>
-  </ul>
 
-  <li><b>Build & Run the Application</b></li>
-  <ul>
-    <li><code>mvn clean install</code></li>
-    <li><code>mvn spring-boot:run</code></li>
-    <li>Application runs on <code>http://localhost:8080</code> by default</li>
-  </ul>
+<li><b>Run Application in Eclipse</b></li>
+<ul><li>Right-click → Run As → Spring Boot App</li></ul>
 
-  <li><b>Test the API</b></li>
-  <ul>
-    <li>Endpoint: <code>POST http://localhost:8080/api/sendNotification</code></li>
-    <li>Body (JSON):</li>
+<li><b>Test in Postman</b></li>
 <pre>
+POST http://localhost:8080/api/sendNotification
+Content-Type: application/json
 {
   "tomail": "recipient@gmail.com",
-  "subject": "Test Dynamic Gmail Service",
-  "body": "Hello, this email is sent using DB-driven Gmail configuration."
+  "subject": "Test Dynamic Email",
+  "body": "This email is sent using dynamic DB configuration."
 }
 </pre>
-    <li>Expected Response:</li>
+
+</ol>
+
+<hr>
+
+<h2>🧪 Sample Response</h2>
+
 <pre>
 {
   "success": true,
   "message": "Email sent successfully"
 }
-</pre>
-  </ul>
-</ol>
-
-<hr>
-
-<h2>📬 Sample cURL Command</h2>
-
-<pre>
-curl -X POST http://localhost:8080/api/sendNotification \
-  -H "Content-Type: application/json" \
-  -d '{
-    "tomail": "recipient@gmail.com",
-    "subject": "Test Dynamic Email",
-    "body": "Hello from Dynamic Gmail Notification Service!"
-  }'
 </pre>
 
 <hr>
@@ -279,8 +240,6 @@ curl -X POST http://localhost:8080/api/sendNotification \
 
 <p>
 <b>Abhishek Khanai</b><br>
-Java Full Stack / Backend Developer<br>
-GitHub: 
-<a href="https://github.com/Abhishekkhanai07">Abhishekkhanai07</a>
+Java Full Stack Developer<br>
+GitHub: <a href="https://github.com/Abhishekkhanai07">Abhishekkhanai07</a>
 </p>
-
